@@ -1,0 +1,13 @@
+openai>=1.0
+qdrant-client
+sentence-transformers
+langchain
+langchain-openai
+pymupdf
+trafilatura
+rank-bm25
+flashrank
+ragas
+python-dotenv
+langsmith
+chainlit
