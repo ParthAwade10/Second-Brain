@@ -43,3 +43,13 @@ def load_file(path: str) -> list[dict]:
     else:
         print(f"Unsupported file type: {ext}")
         return []
+
+
+if __name__ == "__main__":
+    import sys
+
+    path = sys.argv[1] if len(sys.argv) > 1 else "data/sample_docs/test_note.md"
+    pages = load_file(path)
+    print(f"Loaded {len(pages)} page(s) from '{path}'")
+    for i, p in enumerate(pages):
+        print(f"  Page {i+1}: {len(p['text'])} chars | metadata: {p['metadata']}")

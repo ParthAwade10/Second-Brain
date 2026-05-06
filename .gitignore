@@ -209,6 +209,9 @@ tempCodeRunnerFile.py
 # PyPI configuration file
 .pypirc
 
+# Qdrant local storage
+qdrant_storage/
+
 # Marimo
 marimo/_static/
 marimo/_lsp/
