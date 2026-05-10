@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Second Brain</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+</head>
+<body>
+  <div id="app">
+
+    <!-- ── Sidebar ────────────────────────────────────── -->
+    <aside id="sidebar">
+      <div class="sidebar-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/>
+          <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/>
+          <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/>
+        </svg>
+        <span>Second Brain</span>
+      </div>
+
+      <div class="sidebar-body">
+        <div class="section-label">Knowledge Base</div>
+
+        <div id="drop-zone" class="drop-zone">
+          <input type="file" id="file-input" multiple accept=".pdf,.md,.txt,.png,.jpg,.jpeg,.webp" />
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="17 8 12 3 7 8"/>
+            <line x1="12" y1="3" x2="12" y2="15"/>
+          </svg>
+          <p>Drop files here or <u>browse</u><br /><span>PDF · MD · TXT · PNG · JPG</span></p>
+        </div>
+
+        <div id="doc-list" class="doc-list"></div>
+      </div>
+
+      <div class="sidebar-footer">
+        <button id="clear-btn" class="clear-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="13" height="13">
+            <polyline points="3 6 5 6 21 6"/>
+            <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
+            <path d="M10 11v6M14 11v6"/>
+          </svg>
+          Clear knowledge base
+        </button>
+      </div>
+    </aside>
+
+    <!-- ── Main ──────────────────────────────────────── -->
+    <div id="main">
+
+      <!-- Welcome screen -->
+      <div id="welcome" class="welcome">
+        <div class="welcome-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/>
+            <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/>
+            <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/>
+          </svg>
+        </div>
+        <h1>What would you like to study?</h1>
+        <p>Upload your notes, PDFs, or images — then ask me anything.</p>
+        <div class="suggestions">
+          <button class="suggestion" data-text="Summarize the key concepts from my notes">Summarize key concepts</button>
+          <button class="suggestion" data-text="Create a comprehensive study guide for the main topics in my notes">Create a study guide</button>
+          <button class="suggestion" data-text="What are the most important things I need to remember?">Most important points</button>
+          <button class="suggestion" data-text="Explain the hardest concepts from my notes in simple terms">Explain simply</button>
+        </div>
+      </div>
+
+      <!-- Chat messages -->
+      <div id="chat" class="chat"></div>
+
+      <!-- Input bar -->
+      <div id="input-area" class="input-area">
+        <div class="input-controls">
+          <div class="mode-tabs">
+            <button class="mode-tab active" data-mode="qa">Q&amp;A</button>
+            <button class="mode-tab" data-mode="guide">Study Guide</button>
+          </div>
+        </div>
+        <div class="input-box">
+          <textarea id="query-input" placeholder="Ask about your notes…" rows="1"></textarea>
+          <button id="send-btn" class="send-btn" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="19" x2="12" y2="5"/>
+              <polyline points="5 12 12 5 19 12"/>
+            </svg>
+          </button>
+        </div>
+        <div class="input-hint">Enter to send &nbsp;·&nbsp; Shift+Enter for new line</div>
+      </div>
+    </div>
+
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
